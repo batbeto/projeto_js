@@ -3,7 +3,7 @@ var assert = require('assert');
 var restify = require('restify-clients');
 var router = express.Router();
 
-var client = restify.createJSONClient({
+var client = restify.createJsonClient({
   url: 'http://localhost:4000'
 });
 
