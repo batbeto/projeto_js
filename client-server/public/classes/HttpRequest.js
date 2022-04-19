@@ -22,24 +22,24 @@ class HttpRequest{
     return new Promise((resolve, reject)=>{
       let ajax = new XMLHttpRequest();
 
-    ajax.open(method.toUpperCase(), url);
-
-    ajax.onerror = event => {
-      reject(e);
-    };
-
-    ajax.onload = event => {
-      let obj = {};
-      try {
-        obj = JSON.parse(ajax.responseText);
-      } catch(e){
+      ajax.open(method.toUpperCase(), url);
+  
+      ajax.onerror = event => {
         reject(e);
-        console.error(e);
-      }   
-      resolve(obj);  
-      
-    };
-    ajax.send();
+      };
+  
+      ajax.onload = event => {
+        let obj = {};
+        try {
+          obj = JSON.parse(ajax.responseText);
+        } catch(e){
+          reject(e);
+          console.error(e);
+        }   
+        resolve(obj);  
+        
+      };
+      ajax.send();
     });
   }
  }
