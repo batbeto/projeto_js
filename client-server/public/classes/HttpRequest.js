@@ -1,24 +1,23 @@
 class HttpRequest{
 
   static get(url, params = {}){
-    HttpRequest.request('GET', url, params);
+    return HttpRequest.request('GET', url, params);
   }
 
   static post(url, params = {}){
-    HttpRequest.request('POST', url, params);
+    return HttpRequest.request('POST', url, params);
   }
 
 
   static put(url, params = {}){
-    HttpRequest.request('PUT', url, params);
+    return HttpRequest.request('PUT', url, params);
   }
 
   static delete(url, params = {}){
-    HttpRequest.request('DELETE', url, params);
+    return HttpRequest.request('DELETE', url, params);
   }
 
   static request(method, url, params = {}){
-
     return new Promise((resolve, reject)=>{
       let ajax = new XMLHttpRequest();
 
@@ -42,4 +41,5 @@ class HttpRequest{
       ajax.send();
     });
   }
+    
  }
