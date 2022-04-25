@@ -64,7 +64,7 @@ class User {
           this[name] = new Date(json[name]);
           break;
         default:
-          this[name] = json[name];
+          if(name.substring(0, 1) =  '_') this[name] = json[name];
       }
       
     }
@@ -88,8 +88,8 @@ class User {
 
   }
   toJSON(){
-    Object.keys(this).forEach( keys => {
-      if(this[key] !== undefined) json[key] = this[key]
+    Object.keys(this).forEach( key => {
+      if(this[key] !== undefined) json[key] = this[key];
     });
     return json;
   }
