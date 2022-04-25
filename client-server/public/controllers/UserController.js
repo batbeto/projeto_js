@@ -35,13 +35,14 @@ class UserController{
       }
       let user = new User();
       user.loadFromJSON(result);
-      user.save().then(user=>{
+      user.save().then(user =>{
         this.getTr(user, tr);
 
         this.updateCount();
         
         this.formUpdateEl.reset();
         btn.disabled = false;
+        
         this.showPanelCreate();
       });
      
@@ -188,7 +189,6 @@ class UserController{
  
 
   selectAll(){
-
     HttpRequest.get('/users').then((data) => {
       data.users.forEach((dataUser)=>{
         let user = new User();
