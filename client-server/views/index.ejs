@@ -150,9 +150,10 @@
                     <th>Ações</th>
                   </tr>
                 </thead>
-                <tbody id='table-users'>
+                <tbody id="table-users">
 
-                                    
+                                   
+                  
                 </tbody>
               </table>
             </div>
@@ -211,7 +212,7 @@
                   <label>Gênero</label>
                   <div class="radio">
                     <label for="exampleInputGenderM">
-                      <input type="radio" id="exampleInputGenderM" name="gender" value="M">
+                      <input type="radio" id="exampleInputGenderM" name="gender" value="M" checked>
                       Masculino</label>
                   </div>
                   <div class="radio">
@@ -495,7 +496,8 @@
               </div>
             </form>
           </div>
-          <div class="box box-primary" id="box-user-update" style="display: none;">
+
+          <div class="box box-primary" id="box-user-update" style="display:none;">
             <div class="box-header with-border">
               <h3 class="box-title">Editar Usuário</h3>
             </div>
@@ -511,13 +513,13 @@
                   <label>Gênero</label>
                   <div class="radio">
                     <label for="exampleInputGenderM-update">
-                      <input type="radio" id="exampleInputGenderM-update" name="gender" value="M">
-                      Masculino</label>
+                      <input type="radio" id="exampleInputGenderM-update" name="gender" value="M" checked> Masculino
+                    </label>
                   </div>
                   <div class="radio">
                     <label for="exampleInputGenderF-update">
-                      <input type="radio" id="exampleInputGenderF-update" name="gender" value="F">
-                      Feminino</label>
+                      <input type="radio" id="exampleInputGenderF-update" name="gender" value="F"> Feminino
+                    </label>
                   </div>
                 </div>
                 <div class="form-group">
@@ -772,15 +774,15 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1-update">E-mail</label>
+                  <label for="exampleInputEmail-update">E-mail</label>
                   <input type="email" required class="form-control" id="exampleInputEmail-update" placeholder="Digite o e-mail" name="email">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputPassword1-update">Senha</label>
+                  <label for="exampleInputPassword-update">Senha</label>
                   <input type="password" required class="form-control" id="exampleInputPassword-update" placeholder="Crie uma senha" name="password">
                 </div>
                 <div class="form-group">
-                  <img src="" alt="Foto" class="photo" style="max-height: 128px;">
+                  <img src="dist/img/boxed-bg.jpg" class="photo" style="max-height: 128px;">
                   <label for="exampleInputFile-update">Foto</label>
                   <input type="file" id="exampleInputFile-update" name="photo">
                 </div>
@@ -790,13 +792,14 @@
                   </label>
                 </div>
               </div>
-              <!-- /.box-body -->          
+              <!-- /.box-body -->
               <div class="box-footer">
                 <button type="submit" class="btn btn-primary">Salvar</button>
                 <button type="button" class="btn btn-default btn-cancel">Cancelar</button>
               </div>
             </form>
           </div>
+
         </div>
       </div>
 
@@ -816,11 +819,11 @@
   </footer>
 
 </div>
+
 <script src="classes/HttpRequest.js"></script>
-<script src="classes/utils.js"></script>
+<script src="classes/Utils.js"></script>
 <script src="models/User.js"></script>
 <script src="controllers/UserController.js"></script>
 <script src="index.js"></script>
-
 </body>
 </html>
