@@ -1,3 +1,5 @@
+const { json } = require("express");
+
 class User {
   constructor (name, gender, birth, country, email, password, photo, admin){
     this._id;
@@ -85,24 +87,29 @@ class User {
     return usersID;
 
   }
-
+  toJSON(){
+    Object.keys(this).forEach( keys => {
+      if(this[key] !== undefined) json[key] = this[key]
+    });
+    return json;
+  }
   save(){
-    let users = User.getUsersStorage();
-    
-    if(this.id > 0){
-      users.map(u => {
-        if (u._id == this.id){
-          Object.assign(u, this);
-        }
-        return u;
+    return new Promise((resolve, reject) => {
+      let promise;
+
+      if (this.id){
+        promise = HttpRequest.put(`/users/${this.id}`, this.toJSON());
+      } else {
+        promise = HttpRequest.post(`/users`, this.toJSON());
+      }
+      promise.then(data => {
+        this.loadFromJSON(data);
+        resolve(this);
+      }).catch(e => {
+        reject(e);
       });
-
-    } else {
-      this._id = this.getNewID();
-      users.push(this);
-
-    }
-    localStorage.setItem('users',JSON.stringify(users));
+    });
+    
   }
 
   remove(){
